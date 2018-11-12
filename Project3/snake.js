@@ -1,22 +1,25 @@
 const WIDTH = 100, HEIGHT = 100, size = 4;
-let grid, isStart = true, isPaused = false;
+let grid, isStart = true, pause = false;
 let snake, length = 5, xDot, yDot, direction = 'right';
 
 function setup() { 
 	grid = new Array(HEIGHT).fill(new Array(WIDTH).fill(0));
-	snake = new Array(2).fill(new Array(1).fill(WIDTH / 2));
+	snake = new Array(2).fill(new Array(1));
+  snake[0][0] = floor(HEIGHT / 2);
+  snake[1][0] = floor(WIDTH / 2);
 	//load the grid
 	noStroke();
 	createCanvas(400, 400);
 }
 
 function draw() {
-	if (start) {
+	if (isStart) {
 		startDraw();
 		return;
 	}
-	if (paused) return;
+	if (pause) return;
 	background(220);
+  text(key, 33, 65);
 	moveSnake();
 	check();
 	snakeDraw();
@@ -44,31 +47,40 @@ function check() {
 }
 
 function keyPressed() {
-  switch (keyCode) {
-    case 74:
+  switch (key) {
+    case 'a':
+    case 'ArrowLeft':
       if (direction != 'right') {
         direction = 'left';
       }
       break;
-    case 76:
+    case 'd':
+    case 'ArrowRight':
       if (direction != 'left') {
         direction = 'right';
       }
       break;
-    case 73:
+    case 'w':
+    case 'ArrowUp':
       if (direction != 'down') {
         direction = 'up';
       }
       break;
-    case 75:
+    case 's':
+    case 'ArrowDown':
       if (direction != 'up') {
         direction = 'down';
       }
       break;
-    case start:
+    case '1':
+    case 'Control':
     	isStart = false;
     	break;
-    case pause:
+    case 'Delete':
+      isStart = true;
+      break;
+    case 'q':
+    case 'Shift':
     	pause = !pause;
   }
 }
