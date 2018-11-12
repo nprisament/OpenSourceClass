@@ -1,5 +1,5 @@
 const WIDTH = 100, HEIGHT = 100, size = 4;
-let grid, isStart = false, isPaused = false;
+let grid, isStart = true, isPaused = false;
 let snake, length = 5, xDot, yDot, direction = 'right';
 
 function setup() { 
@@ -8,17 +8,39 @@ function setup() {
 	//load the grid
 	noStroke();
 	createCanvas(400, 400);
-} 
+}
 
 function draw() {
-	//if start screen
-	//if paused, continue
-
-	//find the keyboard input
+	if (start) {
+		startDraw();
+		return;
+	}
+	if (paused) return;
 	background(220);
-	//move snake
-	//check for collision
-	//print snake and board
+	moveSnake();
+	check();
+	snakeDraw();
+	gridDraw();
+}
+
+function startDraw() {
+
+}
+
+function snakeDraw() {
+
+}
+
+function gridDraw() {
+
+}
+
+function moveSnake() {
+
+}
+
+function check() {
+
 }
 
 function keyPressed() {
@@ -43,5 +65,10 @@ function keyPressed() {
         direction = 'down';
       }
       break;
+    case start:
+    	isStart = false;
+    	break;
+    case pause:
+    	pause = !pause;
   }
 }
