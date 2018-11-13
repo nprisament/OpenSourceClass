@@ -1,8 +1,11 @@
 Open Source Art, Music and Culture
 Project 3: Creative Coding and Artistic Machines
 Due: Wednesday November 14
+
 Create a project with either Processing OR the Arduino OR both.
+
 This is an open ended project.  Think of it as a sketch or experiment, a chance to explore.
+
 Here are some possible starting points.  You may choose one of these, or come up with your own idea.
 
 Drawing with Processing: create a Processing Sketch that explores drawing in an original way.  Think about introducing other kinds of code into the drawing, or incorporating video input, sound input or sensors.
